@@ -33,5 +33,5 @@ def reduce_plain(plain, debug = True):
 				print 'finished with indx', indx
 			return ''.join(resList)
 
-if True:			
+if False:			
 	print reduce_plain('abcdefgh')
