@@ -26,7 +26,7 @@ def chain_plain(plain, chain_heads=[], chain_len=100000, debug = False):
 	return (plain, hashlib.sha1(reduced_val).hexdigest())
 	# return (plain, reduced_val)
 
-def find_hash_in_chain(chain_head, hashval, chain_len=100000):
+def find_hash_in_chain(chain_head, hashval, chain_len=100000, debug=False):
 	reduced_val = reductor.reduce_plain(chain_head, debug)
 
 	for x in range(2,chain_len):
@@ -39,7 +39,7 @@ def find_hash_in_chain(chain_head, hashval, chain_len=100000):
 
 
 
-if True:
+if False:
 	# cceca
 	res = find_hash_in_chain('abcde','e938b72279981fce748e5b2d1c4f454121ed4448')
 

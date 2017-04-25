@@ -1,4 +1,4 @@
-import hashlib, chain, cPickle, random, string, time
+import hashlib, chain, cPickle, random, string, time, reductor
 
 # chris -> 711c73f64afdce07b7e38039a96d2224209e9a6c
 
@@ -27,14 +27,18 @@ def genTable(num_chars=5, num_reductions=5, num_chains=10, chain_len=100000, deb
 def crackSHA1(hashval):
 	(forward_dic, backward_dic) = genTable()
 
+	indx = 0
+	while hashval not in forward_dic.values() and indx < len(forward_dic.values()):
+		hashval = reductor.get_reduced_hash_from_hash(hashval)
+		indx += 1
+
 	if hashval in forward_dic.values():
 		return chain.find_hash_in_chain(backward_dic[hashval], hashval)
+	else:
+		return 'no luck finding it'
 
-# start = time.time()
-# genTable()
-# end = time.time()
-# print end - start
 
 # cPickle.dump(annexed,pickleFile)
 # annexed = cPickle.load(pickleFile)
 
+print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c')
