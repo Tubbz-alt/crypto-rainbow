@@ -1,9 +1,6 @@
 import hashlib, string
 
-debug = True
-# debug = False
-
-def reduce_plain(plain):
+def reduce_plain(plain, debug = True):
 	# A the SHA-1 encryption of the plaintext
 	hashval = hashlib.sha1(plain).hexdigest()
 
@@ -27,15 +24,14 @@ def reduce_plain(plain):
 
 		indx = indx+1 if indx>= 0 else indx-1
 
-		if len(resList) >= 6 or indx>= len(hashval):
+		if len(resList) >= len(plain) or indx>= len(hashval):
 			if debug:
-				if len(resList) >= 6:
-					print 'exited because len(resList) >= 6'
+				if len(resList) >= len(plain):
+					print 'exited because len(resList) >= len(plain)'
 				if indx>= len(plain):
 					print 'exited because indx>= len(hashval)'
 				print 'finished with indx', indx
 			return ''.join(resList)
 
-if debug:			
-	print reduce_plain('abcdef')
-	print reduce_plain('facdac')
+if True:			
+	print reduce_plain('abcdefgh')
