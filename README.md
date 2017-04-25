@@ -4,6 +4,7 @@ A python script that will find the hash value for any SHA-1 hash of a 6 letter w
 * The test cases are base 64 encoded SHA-1 hashes
 * The reduction function consists of simply concatenating the first and last 3 letters of the hash
 * We chain 5 times or until our reductions are less than 6 chars long
+	* What to do when we only get <6 letters is still up for debate atm.
 
 ## Some Helpful resources:
 * [RainbowTables by Kestas Kuliukas](http://kestas.kuliukas.com/RainbowTables/)
