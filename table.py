@@ -1,4 +1,6 @@
-import hashlib, chain, cPickle, random, string
+import hashlib, chain, cPickle, random, string, time
+
+# chris -> 711c73f64afdce07b7e38039a96d2224209e9a6c
 
 def genTable(num_chars=5, num_reductions=5, num_chains=10, chain_len=100000, debug=False):
 	# We keep two dictionaries: {plain,hash}, {hash,plain}
@@ -19,9 +21,19 @@ def genTable(num_chars=5, num_reductions=5, num_chains=10, chain_len=100000, deb
 		forward_dic[key] = val
 		backward_dic[val] = key
 
-	print forward_dic
-	print backward_dic
+	return (forward_dic, backward_dic)
 
+
+def crackSHA1(hashval):
+	(forward_dic, backward_dic) = genTable()
+
+	if hashval in forward_dic.values():
+		return chain.find_hash_in_chain(backward_dic[hashval], hashval)
+
+# start = time.time()
+# genTable()
+# end = time.time()
+# print end - start
 
 # cPickle.dump(annexed,pickleFile)
 # annexed = cPickle.load(pickleFile)
