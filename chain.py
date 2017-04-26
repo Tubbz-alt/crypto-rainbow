@@ -14,10 +14,10 @@ def chain_plain(plain, chain_heads=[], chain_len=100000, debug = False):
 
 	for x in range(2,chain_len):
 		reduced_val = reductor.reduce_plain(reduced_val, debug)
-		if reduced_val in chain_heads:
+		if reduced_val in chain_heads or reduced_val == plain:
 			if debug:
 				print 'found a cycle!!! for ', reduced_val
-			break 
+			return (None, None)
 		if debug:
 			print 'reduction #', x, ' with reduced_val ', reduced_val
 		# TODO: Handle small reduced_val
@@ -31,7 +31,8 @@ def find_hash_in_chain(chain_head, hashval, chain_len=100000, debug=False):
 
 	for x in range(2,chain_len):
 		reduced_val = reductor.reduce_plain(reduced_val, debug)
-
+		if reduced_val == 'chris':
+			print 'MATCHHEEEED!!!!!'
 		if hashval == hashlib.sha1(reduced_val).hexdigest():
 			return reduced_val
 

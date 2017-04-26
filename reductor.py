@@ -51,7 +51,7 @@ def get_reduced_hash_from_hash(hashval, char_len=5, debug=True):
 
 		indx = indx+1 if indx>= 0 else indx-1
 
-		if len(resList) >= char_len or indx>= len(hashval):
+		if len(resList) >= char_len or abs(indx)>= len(hashval):
 			if debug:
 				print 'finished with indx', indx
 			return hashlib.sha1(''.join(resList)).hexdigest()
