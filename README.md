@@ -11,4 +11,5 @@ A python script that will find the hash value for any SHA-1 hash of a 6 letter w
 * [Wikipedia link](https://en.wikipedia.org/wiki/Rainbow_table)
 * [SO question wihth walk-thru example](https://crypto.stackexchange.com/questions/5900/example-rainbow-table-generation)
 * [SO explanation of reduction functions](http://stackoverflow.com/questions/5741247/how-does-a-reduction-function-used-with-rainbow-tables-work)
-* [Series written by Paul Faulstich ](https://stichintime.wordpress.com/2009/04/09/rainbow-tables-part-5-chains-and-rainbow-tables/)
+* [Series written by Paul Faulstich](https://stichintime.wordpress.com/2009/04/09/rainbow-tables-part-5-chains-and-rainbow-tables/)
+* [Example of Reduction Function](https://crypto.stackexchange.com/questions/37832/how-to-create-reduction-functions-in-rainbow-tables)

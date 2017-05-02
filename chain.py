@@ -7,13 +7,13 @@ import hashlib, reductor, time
 def chain_plain(plain, chain_heads=[], chain_len=100000, debug = False):
 	if debug:
 		print 'beginnig chain starting with ', plain
-	reduced_val = reductor.reduce_plain(plain, debug)
+	reduced_val = reductor.reduce_plain(plain, 0, debug)
 
 	if debug:
 		print 'reducted first with reduced_val ', reduced_val
 
-	for x in range(2,chain_len):
-		reduced_val = reductor.reduce_plain(reduced_val, debug)
+	for x in range(1,chain_len):
+		reduced_val = reductor.reduce_plain(reduced_val, x, debug)
 		if reduced_val in chain_heads or reduced_val == plain:
 			if debug:
 				print 'found a cycle!!! for ', reduced_val
@@ -27,10 +27,10 @@ def chain_plain(plain, chain_heads=[], chain_len=100000, debug = False):
 	# return (plain, reduced_val)
 
 def find_hash_in_chain(chain_head, hashval, chain_len=100000, debug=False):
-	reduced_val = reductor.reduce_plain(chain_head, debug)
+	reduced_val = reductor.reduce_plain(chain_head, chain_len-1, debug)
 
-	for x in range(2,chain_len):
-		reduced_val = reductor.reduce_plain(reduced_val, debug)
+	for x in range(chain_len-2,-1,-1):
+		reduced_val = reductor.reduce_plain(reduced_val, x, debug)
 		if reduced_val == 'chris':
 			print 'MATCHHEEEED!!!!!'
 		if hashval == hashlib.sha1(reduced_val).hexdigest():

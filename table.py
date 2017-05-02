@@ -1,14 +1,14 @@
-import hashlib, chain, cPickle, random, string, time, reductor
+import hashlib, chain, cPickle, random, string, time, reductor, conversions
 
 # chris -> 711c73f64afdce07b7e38039a96d2224209e9a6c
 
-def genTable(num_chars=5, num_reductions=5, num_chains=100, chain_len=100000, debug=False):
+# num_Chain = 2**(2.0/3)
+# chain_len = 2**(1.0/3)
+def genTable(num_chars=5, num_chains=50000, chain_len=200, debug=False):
 	# We keep two dictionaries: {plain,hash}, {hash,plain}
 	# This allows for faster lookups, good memory sacrifice to save time
 	forward_dic = {} # {plain,hash}
 	backward_dic = {} # {hash,plain}
-
-
 
 	for x in range(num_chains):
 		print 'have generated ', x
@@ -36,10 +36,10 @@ def genTable(num_chars=5, num_reductions=5, num_chains=100, chain_len=100000, de
 def crackSHA1(hashval, debug=True):
 	(forward_dic, backward_dic) = genTable()
 
-	indx = 0
-	while hashval not in forward_dic.values() and indx < len(forward_dic.values()):
-		hashval = reductor.get_reduced_hash_from_hash(hashval, 5, False)
-		indx += 1
+	indx = len(forward_dic.values())
+	while hashval not in forward_dic.values() and indx >= 0:
+		indx -= 1
+		hashval = reductor.reduce_hash(hashval,5, indx, False)
 
 		if debug:
 			print 'curr indx: ', indx
@@ -55,5 +55,7 @@ def crackSHA1(hashval, debug=True):
 
 start = time.time()
 print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c')
+# print crackSHA1(conversions.b64_to_hex('7iEjysAibZbmoZP/9v5w3MPnUW0='))
+# print crackSHA1(conversions.b64_to_hex('qwaEUA9V60H/7EDP4cKZY/x36NI='))
 end = time.time()
 print end - start
