@@ -1,4 +1,4 @@
-import hashlib, chain, cPickle, random, string, time, reductor, conversions
+import hashlib, chain, cPickle, random, string, time, reductor, conversions, cPickle
 
 # chris -> 711c73f64afdce07b7e38039a96d2224209e9a6c
 
@@ -7,17 +7,27 @@ import hashlib, chain, cPickle, random, string, time, reductor, conversions
 def genTable(num_chars=5, num_chains=50000, chain_len=200, debug=False):
 	# We keep two dictionaries: {plain,hash}, {hash,plain}
 	# This allows for faster lookups, good memory sacrifice to save time
+
+	newly_generated = False
+
 	forward_dic = {} # {plain,hash}
 	backward_dic = {} # {hash,plain}
+	try:
+		forward_dic = cPickle.load('forward.pckl')
+		backward_dic = cPickle.load('backward.pckl')
+	except:
+		newly_generated = True
+
 
 	for x in range(num_chains):
-		print 'have generated ', x
+		if x % 1000 == 0:
+			print 'have generated ', x
 		rnd_string = ''.join(random.choice(string.lowercase) for i in range(num_chars))
 
 		while rnd_string in forward_dic.keys():
 			rnd_string = ''.join(random.choice(string.lowercase) for i in range(num_chars))
 
-		(key, val) = chain.chain_plain(rnd_string, forward_dic.keys(), chain_len, debug)
+		(key, val) = chain.create_chain(rnd_string, forward_dic.keys(), chain_len, debug)
 
 		while key == None:
 			print 'found a Collision'
@@ -25,15 +35,19 @@ def genTable(num_chars=5, num_chains=50000, chain_len=200, debug=False):
 
 			while rnd_string in forward_dic.keys():
 				rnd_string = ''.join(random.choice(string.lowercase) for i in range(num_chars))
-			(key, val) = chain.chain_plain(rnd_string, forward_dic.keys(), chain_len, debug)
+			(key, val) = chain.create_chain(rnd_string, forward_dic.keys(), chain_len, debug)
 
 		forward_dic[key] = val
 		backward_dic[val] = key
 
+	if newly_generated:
+		cPickle.dump(forward_dic,'forward.pckl')
+		cPickle.dump(backward_dic,'backward.pckl')
+
 	return (forward_dic, backward_dic)
 
 
-def crackSHA1(hashval, debug=True):
+def crackSHA1(hashval, debug=False):
 	(forward_dic, backward_dic) = genTable()
 
 	indx = len(forward_dic.values())
@@ -50,8 +64,6 @@ def crackSHA1(hashval, debug=True):
 		return 'no luck finding it after checking ', indx
 
 
-# cPickle.dump(annexed,pickleFile)
-# annexed = cPickle.load(pickleFile)
 
 start = time.time()
 print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c')

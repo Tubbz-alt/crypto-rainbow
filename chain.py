@@ -4,7 +4,8 @@ import hashlib, reductor, time
 # The number of times we'll reduce
 # num_reductions = 5
 
-def chain_plain(plain, chain_heads=[], chain_len=100000, debug = False):
+def create_chain(plain, chain_heads=[], chain_len=250, debug = False):
+	# print 'chain len ', chain_len
 	if debug:
 		print 'beginnig chain starting with ', plain
 	reduced_val = reductor.reduce_plain(plain, 0, debug)
