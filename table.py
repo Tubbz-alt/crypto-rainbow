@@ -10,7 +10,7 @@ def get_table(num_chars=5, num_chains=50000, chain_len=200, debug=False):
 		return get_old_table()
 	except:
 		pass
-	f = open('rbtb.text', 'wt')
+	f = open('rbtb.txt', 'wt')
 	writer = csv.writer(f)
 	for x in range(num_chains):
 		if x % 1000 == 0:
@@ -23,9 +23,9 @@ def get_table(num_chars=5, num_chains=50000, chain_len=200, debug=False):
 
 	return get_old_table()
 
-def get_old_table(tab_name='rbtb.text'):
+def get_old_table(tab_name='rbtb.txt'):
 	table = {}
-	with open('rbtb.text', 'rb') as csvfile:
+	with open('rbtb.txt', 'rb') as csvfile:
 		reader = csv.reader(csvfile)
 		for row in reader:
 			table[row[0]] = row[1]
@@ -55,4 +55,4 @@ print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c')
 # print crackSHA1(conversions.b64_to_hex('7iEjysAibZbmoZP/9v5w3MPnUW0='))
 # print crackSHA1(conversions.b64_to_hex('qwaEUA9V60H/7EDP4cKZY/x36NI='))
 end = time.time()
-print end - start
+print 'attempt took %fs to complete ' % (end - start)/60.0
