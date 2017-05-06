@@ -21,7 +21,6 @@ def reduce_hash(hashval, num_chars=5, reduction_index=1, debug=False):
 		print hex(int(hashval,16)+reduction_index)[2:-1]
 		print hashlib.sha1(hex((int(hashval,16)+reduction_index) % 26**num_chars)).hexdigest()
 
-	hashval = hex(int(hashval,16)+reduction_index)[2:-1]
 	hashval = hashlib.sha1(hex((int(hashval,16)+reduction_index) % 26**num_chars)).hexdigest()
 	resList = []
 	indx = 0
