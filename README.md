@@ -24,12 +24,15 @@ A python script that will find the hash value for any SHA-1 hash of lowercase wo
 `python attack.py [hash] [length of pre-hashed value] [ Debug: True/False]`
 
 ## Write Up
-	For a more academic explanation of our work (read what we told our prof in attempt to get an A), have a look at the write up .pdf file included.
+	For a more academic explanation of our work (read what we told our prof in attempt to get an A),
+	have a look at the write up .pdf file included.
 
 	Want a TLDR:
 		If you want to keep your users passwords safe,
 			first off,
-				SHA-256 is the way to go. MD5 is now a joke, Google (And most definitely the NSA) have broken SHA-1 (read using SHA-1 is for the weak).
+				SHA-256 is the way to go.
+					MD5 is now a joke,
+					Google (And most definitely the NSA) have broken SHA-1 (read using SHA-1 is for the weak).
 		Secondly,
 			Hashing isn't enough. Make sure you salt everything.
 
@@ -44,4 +47,4 @@ A python script that will find the hash value for any SHA-1 hash of lowercase wo
 * [Series written by Paul Faulstich](https://stichintime.wordpress.com/2009/04/09/rainbow-tables-part-5-chains-and-rainbow-tables/)
 * [Example of Reduction Function](https://crypto.stackexchange.com/questions/37832/how-to-create-reduction-functions-in-rainbow-tables)
 
-Don't know what hashing is? [Visit this link](http://bfy.tw/Bds2) 
+Don't know what hashing is? [Visit this link](http://bfy.tw/Bds2)
