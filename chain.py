@@ -35,7 +35,7 @@ def get_list_red(hashval, num_chars=5, chain_len=200,):
 	hash_list = [hashval]
 
 	for x in range(0,chain_len):
-		reduced_val = reductor.reduce_hash(hashval,5, chain_len-x-1)
+		reduced_val = reductor.reduce_hash(hashval,num_chars, chain_len-x-1)
 		new_hash = hashlib.sha1(reduced_val).hexdigest()
 
 		for y in range(chain_len-x,chain_len):
