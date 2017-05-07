@@ -23,6 +23,8 @@ A python script that will find the hash value for any SHA-1 hash of lowercase wo
 
 `python attack.py [hash] [length of pre-hashed value] [ Debug: True/False]`
 
+**Please note that you are responsible for your own type checking. Otherwise we'll simply raise the error**
+
 ## Write Up
 	For a more academic explanation of our work (read what we told our prof in attempt to get an A),
 	have a look at the write up .pdf file included.
@@ -35,9 +37,6 @@ A python script that will find the hash value for any SHA-1 hash of lowercase wo
 					Google (And most definitely the NSA) have broken SHA-1 (read using SHA-1 is for the weak).
 		Secondly,
 			Hashing isn't enough. Make sure you salt everything.
-
-**Please note that you are responsible for your own type checking. Otherwise we'll simply raise the error**
-
 
 ## Some Helpful resources to better understand the beauty of rainbow tables:
 * [Rainbow Tables by Kestas Kuliukas](http://kestas.kuliukas.com/RainbowTables/)
