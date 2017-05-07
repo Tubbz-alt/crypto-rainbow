@@ -1,35 +1,56 @@
-import hashlib, chain, cPickle, random, string, time, reductor, conversions, cPickle, csv, math
-
-# chris -> 711c73f64afdce07b7e38039a96d2224209e9a6c
-
-# inv st -> 13/20
-# inv nd -> 7/20
-# inv both -> 8/20
+'''The equivalent of table.py but we use threading while generating
+IT IS NOT FULLY DONE, 
+only generates 1/100 of the required values
+no clear improvements noticed'''
+import hashlib, chain, cPickle, random, string, time, reductor, conversions, cPickle, csv, threading
 
 # num_Chain = 2**(2.0/3)
 # chain_len = 2**(1.0/3)
+
+'''2 out of 20
+attempt took 5.935867mnts to complete'''
+
 correct = 0
+table = {}
+num_threads = 10
+
+lock = threading.Lock()
+
 def get_table(num_chars=5, num_chains=75000, chain_len=250, debug=False):
 	# We save to a file for faster generation
 	try:
 		return get_old_table()
 	except:
 		pass
+
+
+	threads = [threading.Thread(target=run_gen_threads, args= (num_chars, num_chains/num_threads, chain_len, x)) for x in range(num_threads)]
+	for thread in threads:
+		thread.start()
+
+	for thread in threads:
+	    thread.join()
+
+	return get_old_table()
+
+def run_gen_threads(num_chars, num_chains, chain_len, thread_num, debug=False):
 	f = open('rbtb.txt', 'wt')
 	writer = csv.writer(f)
+
 	for x in range(num_chains):
 		if x % 1000 == 0:
-			print 'have generated ', x
+			print 'Thread %i has generated %i chains' % (thread_num, x)
 
 		rnd_string = ''.join(random.choice(string.lowercase) for i in range(num_chars))
 		(chain_head, chain_end) = chain.create_chain(rnd_string, chain_len, debug)
 
+		lock.acquire(True)
 		writer.writerow((chain_head,chain_end))
+		lock.release()
 
-	return get_old_table()
 
 def get_old_table(tab_name='rbtb.txt'):
-	table = {}
+	global table 
 	with open(tab_name, 'rb') as csvfile:
 		reader = csv.reader(csvfile)
 		for row in reader:
@@ -39,9 +60,9 @@ def get_old_table(tab_name='rbtb.txt'):
 def crackSHA1(hashval, debug=False):
 	table = get_table()
 
+	num_chains=75000
+	chain_len=250
 	num_chars=5
-	num_chains=int(math.ceil((26**num_chars)**(2.0/3)))
-	chain_len=int(math.ceil((26**num_chars)**(1.0/3)))
 
 	print 'finished generating table'
 	list_hash = chain.get_list_red(hashval, num_chars, chain_len)

@@ -1,54 +1,48 @@
 import hashlib, string
 
+
 def hash_and_reduce(val_to_reduce, reduction_index=1, debug=False):
-	# print 'the val_to_reduce is ', val_to_reduce
-	# A the SHA-1 encryption of the plaintext
 	hashval = hashlib.sha1(val_to_reduce).hexdigest()
 
 	if debug:
 		print 'hash val is ', hashval
 
 	return reduce_hash(hashval, len(val_to_reduce), reduction_index, debug)
-	
 
+# my  reduction function
+'''Given a SHA1 hash, add index val, mod, hex then re hash
+lastly, we %26 every so often to get a letter of the alphabet'''
 def reduce_hash(hashval, num_chars=5, reduction_index=1, debug=False):
-	# We now apply the reduction functions
-	# We simply take the first and last 3 letters of the hash
-	# and concatinate them into a string!
-	if debug:
-		print 'init hashval ', hashval
-		print int(hashval,16)+reduction_index
-		print hex(int(hashval,16)+reduction_index)[2:-1]
-		print hashlib.sha1(hex((int(hashval,16)+reduction_index) % 26**num_chars)).hexdigest()
-
+	# string.ascii_lowercase
+	letters = 'abcdefghijklmnopqrstuvwxyz'
+	hashval = hashval[::-1]
 	hashval = hashlib.sha1(hex((int(hashval,16)+reduction_index) % 26**num_chars)).hexdigest()
-	resList = []
-	indx = 0
+	res = []
+	for x in range(5):
+		curr = int(hashval[8*x:8*(x+1)], 16)
+		res.append(letters[curr %26])
+	return ''.join(res[::-1])
 
-	# Old reduction function that was used for every reduction
-	# Simply returns first 3 alpha + last 3 flipped
-	while True:
-		if len(resList) == 3 and indx >0:
-			indx = -1
+	
+# Chris's reduction function
+def reduce_hash2(hashval, num_chars=5, reduction_index=1, debug=False):
+	lettersLower = 'abcdefghijklmnopqrstuvwxyz'
 
-		if debug:
-			print 'curr indx, len, reduction', indx, len(resList), ''.join(resList)
-		if hashval[indx] in string.ascii_lowercase:
-			resList.append(hashval[indx])
+	results = []
+	byteArray = getBytes(hashval)
+	for i in xrange(num_chars):
+		index = byteArray[(i + reduction_index) % len(byteArray)]
+		newChar = lettersLower[index % len(lettersLower)]
+		results.append(newChar)
+	return "".join(results)
 
-		indx = indx+1 if indx>= 0 else indx-1
-
-		if len(resList) >= num_chars or indx>= len(hashval):
-			# if len(resList) >= num_chars:
-			# 	print 'exited because len(resList) >= len(plain)'
-			# if indx>= len(hashval):
-			# 	print 'exited because indx>= len(hashval)'
-			# print 'finished with indx', indx
-			return ''.join(resList)
-
-	# New reduction function that uses index to modify
-	# return str((int(hashval,16)+1) % 26**length_target)
-	# return str((int(hashval,16)+1) % 26**5)
+def getBytes(hashV):
+	results = []
+	remaining = int(hashV, 16)
+	while remaining > 0:
+		results.append(remaining % 256)
+		remaining //= 256
+	return results
 
 if False:			
 	# print reduce_plain('711c73f64afdce07b7e38039a96d2224209e9a6c',6)
