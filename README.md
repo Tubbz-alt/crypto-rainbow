@@ -10,6 +10,9 @@ A python script that will find the hash value for any SHA-1 hash of lowercase wo
 * We have 2 reduction functions which provide almost similar performance
 	* The first runs a crazy computation and then splits the result into a equal amount of hex values that are then `% 26` to match it to a corresponding value of the alphabet. Lastly we concatenate the result.
 	* The second turns the hash into a byte array. We then run the result thru some crazy computation and concatenate!
+	
+
+* You're Probably thinking that we ought to thread this. We started it. Just haven't gotten around to finishing it
 
 
 * **Parameters** used for the chains:
