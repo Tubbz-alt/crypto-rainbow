@@ -1,8 +1,5 @@
 import hashlib, reductor, time
 
-# The number of times we'll reduce
-num_chars = 5
-
 def create_chain(chain_head, chain_len=200, debug = False):
 	if debug:
 		print 'beginnig chain starting with ', chain_head
@@ -20,13 +17,13 @@ def find_hash_in_chain(chain_head, hashval, chain_len=100000, debug=False):
 	hashed_head = hashlib.sha1(chain_head).hexdigest()
 	if hashed_head == hashval:
 		return chain_head
-	reduced_val = reductor.reduce_hash(hashed_head, num_chars, 0)
+	reduced_val = reductor.reduce_hash(hashed_head, len(chain_head), 0)
 
 	for x in range(1,chain_len):
 		hashed_head = hashlib.sha1(reduced_val).hexdigest()
 		if hashed_head == hashval:
 			return reduced_val
-		reduced_val = reductor.reduce_hash(hashed_head,num_chars,x)
+		reduced_val = reductor.reduce_hash(hashed_head,len(chain_head),x)
 
 	return None
 
