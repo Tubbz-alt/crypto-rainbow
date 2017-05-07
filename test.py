@@ -2,74 +2,117 @@ import time
 from table import crackSHA1
 
 start = time.time()
-print crackSHA1('df51e37c269aa94d38f93e537bf6e2020b21406c', 5)
+# print crackSHA1('df51e37c269aa94d38f93e537bf6e2020b21406c', 5)
+# print '==================================================='
+# print crackSHA1('04d13fd0aa6f0197cf2c999019a607c36c81eb9f', 5)
+# print '==================================================='
+# print crackSHA1('cbad02dba1fa008182dffde5e421e24c28949312', 5)
+# print '==================================================='
+# print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c', 5)
+# print '==================================================='
+# print crackSHA1('670dcd8d36377885602119ccf57fa228013c927a', 5)
+# print '==================================================='
+# print crackSHA1('3e83b13d99bf0de6c6bde5ac5ca4ae687a3d46db', 5)
+# print '==================================================='
+# print crackSHA1('e3e587c863fdedfaad8e28c00d3e95d9678009a6', 5)
+# print '==================================================='
+# print crackSHA1('30eef85dfdd3282c8738940920a705d71a465306', 5)
+# print '==================================================='
+# print crackSHA1('e7258d35a6b4c2f1942fcada490ecce41cf1bb32', 5)
+# print '==================================================='
+# print crackSHA1('26acff75e3779e8627bca217e3f5e5c60405d631', 5)
+# print '==================================================='
+# print crackSHA1('443f4c88549fa4a11b2e1bacef35c59b04bb52ff', 5)
+# print '==================================================='
+# print crackSHA1('4c86c7aa29a2d0427d2720e938be2d77d32c0ae7', 5)
+# print '==================================================='
+# print crackSHA1('3931f9c32a344236789e7793492ce27dd2111552', 5)
+# print '==================================================='
+# print crackSHA1('3e83b13d99bf0de6c6bde5ac5ca4ae687a3d46db', 5)
+# print '==================================================='
+# print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c', 5)
+# print '==================================================='
+# print crackSHA1('d8d6a288a51e2489da3fecf2891d4a9d427e727f', 5)
+# print '==================================================='
+# print crackSHA1('3b19ecd69b492a40e3061f17786b33c28f504239', 5)
+# print '==================================================='
+# print crackSHA1('e7258d35a6b4c2f1942fcada490ecce41cf1bb32', 5)
+# print '==================================================='
+# print crackSHA1('29f2a328decf7a91bdde9d6e8f37a69bb13e2085', 5)
+# print '==================================================='
+# print crackSHA1('c286217add963b9cae2cd3886f66ec4931e308e9', 5)
+# print '==================================================='
+# print crackSHA1('bd909fdab812aa2e0ccbfe23fc84da5cae68cad6', 5)
+# print '==================================================='
+# print crackSHA1('7bc70bc7a58c340e993fef5a82070c029a174f14', 5)
+# print '==================================================='
+# print crackSHA1('1ce2d6f9491304c88e8154c3a2271ca04694f256', 5)
+# print '==================================================='
+# print crackSHA1('c3de758aa2d37701882d43d70c96e3e2131f7c35', 5)
+# print '==================================================='
+# print crackSHA1('ad691d435b47042374277cd89e2c156683e2ba70', 5)
+# print '==================================================='
+# print crackSHA1('8b83cb03a8042a8d87009a45fbac32fc746f29c0', 5)
+# print '==================================================='
+# print crackSHA1('e687ad1057c96571974d3750a253917d3d823f05', 5)
+# print '==================================================='
+# print crackSHA1('63e02fb4eabc3959540c4ab40becf245dd6f295f', 5)
+# print '==================================================='
+# print crackSHA1('d92d266f60eff2f6bd9f5ffa522c8dd7830ac6d2', 5)
+# print '==================================================='
+# print crackSHA1('c1448a59c6f3719863b1e3e2cdb7baee30b993c0', 5)
+# print '==================================================='
+# print crackSHA1('b9279dd530966836a04c9881b1bdb4a1aae3c572', 5)
+# print '==================================================='
+# print crackSHA1('0d8be45f65c033345972cb416161d59ef2d71451', 5)
+# print '==================================================='
+# print crackSHA1('6cd93a1728a02d69582e4882d0e61c5103dba107', 5)
+# print '==================================================='
+# print crackSHA1('7b34cb1928c13b29cdfc12f3bdfa932a0509c820', 5)
+# print '==================================================='
+print crackSHA1('ee2123cac0226d96e6a193fff6fe70dcc3e7516d', 6)
 print '==================================================='
-print crackSHA1('04d13fd0aa6f0197cf2c999019a607c36c81eb9f', 5)
+print crackSHA1('44a9713350e53858f058463d4bf7f1e542d9ca4b', 6)
 print '==================================================='
-print crackSHA1('cbad02dba1fa008182dffde5e421e24c28949312', 5)
+print crackSHA1('44a9713350e53858f058463d4bf7f1e542d9ca4b', 6)
 print '==================================================='
-print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c', 5)
+print crackSHA1('c68abddc912338061213c57f6b4119c791a079f8', 6)
 print '==================================================='
-print crackSHA1('670dcd8d36377885602119ccf57fa228013c927a', 5)
+print crackSHA1('6477d7f1fdbfb98330c914a77f4f220aba84f04b', 6)
 print '==================================================='
-print crackSHA1('3e83b13d99bf0de6c6bde5ac5ca4ae687a3d46db', 5)
+print crackSHA1('41fe08fc0dd44e79f799d03ece903e62be25dc7d', 6)
 print '==================================================='
-print crackSHA1('e3e587c863fdedfaad8e28c00d3e95d9678009a6', 5)
+print crackSHA1('ab0684500f55eb41ffec40cfe1c29963fc77e8d2', 6)
 print '==================================================='
-print crackSHA1('30eef85dfdd3282c8738940920a705d71a465306', 5)
+print crackSHA1('e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4', 6)
 print '==================================================='
-print crackSHA1('e7258d35a6b4c2f1942fcada490ecce41cf1bb32', 5)
+print crackSHA1('30274c47903bd1bac7633bbf09743149ebab805f', 6)
 print '==================================================='
-print crackSHA1('26acff75e3779e8627bca217e3f5e5c60405d631', 5)
+print crackSHA1('4dcc4173d80a2817206e196a38f0dbf7850188ff', 6)
 print '==================================================='
-print crackSHA1('443f4c88549fa4a11b2e1bacef35c59b04bb52ff', 5)
+print crackSHA1('52199d7d01b80193bdb00860e09e257906885688', 6)
 print '==================================================='
-print crackSHA1('4c86c7aa29a2d0427d2720e938be2d77d32c0ae7', 5)
+print crackSHA1('e727d1464ae12436e899a726da5b2f11d8381b26', 6)
 print '==================================================='
-print crackSHA1('3931f9c32a344236789e7793492ce27dd2111552', 5)
+print crackSHA1('f809b3db551c4d787881365f7045af745a44947c', 6)
 print '==================================================='
-print crackSHA1('3e83b13d99bf0de6c6bde5ac5ca4ae687a3d46db', 5)
+print crackSHA1('70ffc281dbec8dacf4e02e879c6e20a93b1acd59', 6)
 print '==================================================='
-print crackSHA1('711c73f64afdce07b7e38039a96d2224209e9a6c', 5)
+print crackSHA1('53b0a1b2fadf4e040cdc2155a7340de24aca93cb', 6)
 print '==================================================='
-print crackSHA1('d8d6a288a51e2489da3fecf2891d4a9d427e727f', 5)
+print crackSHA1('61c9b2b17db77a27841bbeeabff923448b0f6388', 6)
 print '==================================================='
-print crackSHA1('3b19ecd69b492a40e3061f17786b33c28f504239', 5)
+print crackSHA1('1dd09baa19dc7688f96e2ea45033603921cd7b83', 6)
 print '==================================================='
-print crackSHA1('e7258d35a6b4c2f1942fcada490ecce41cf1bb32', 5)
+print crackSHA1('5116e40694ac48f654cb7b6816177e0e717237c6', 6)
 print '==================================================='
-print crackSHA1('29f2a328decf7a91bdde9d6e8f37a69bb13e2085', 5)
+print crackSHA1('f0974f01c9825fc2cef6d76d268e6f993ce53c20', 6)
 print '==================================================='
-print crackSHA1('c286217add963b9cae2cd3886f66ec4931e308e9', 5)
+print crackSHA1('effa1ea0578039b4678df07e19776a40417a8c3d', 6)
 print '==================================================='
-print crackSHA1('bd909fdab812aa2e0ccbfe23fc84da5cae68cad6', 5)
+print crackSHA1('ab65d8b9611fb58f4c612f6a5ec239e0e73fd38c', 6)
 print '==================================================='
-print crackSHA1('7bc70bc7a58c340e993fef5a82070c029a174f14', 5)
-print '==================================================='
-print crackSHA1('1ce2d6f9491304c88e8154c3a2271ca04694f256', 5)
-print '==================================================='
-print crackSHA1('c3de758aa2d37701882d43d70c96e3e2131f7c35', 5)
-print '==================================================='
-print crackSHA1('ad691d435b47042374277cd89e2c156683e2ba70', 5)
-print '==================================================='
-print crackSHA1('8b83cb03a8042a8d87009a45fbac32fc746f29c0', 5)
-print '==================================================='
-print crackSHA1('e687ad1057c96571974d3750a253917d3d823f05', 5)
-print '==================================================='
-print crackSHA1('63e02fb4eabc3959540c4ab40becf245dd6f295f', 5)
-print '==================================================='
-print crackSHA1('d92d266f60eff2f6bd9f5ffa522c8dd7830ac6d2', 5)
-print '==================================================='
-print crackSHA1('c1448a59c6f3719863b1e3e2cdb7baee30b993c0', 5)
-print '==================================================='
-print crackSHA1('b9279dd530966836a04c9881b1bdb4a1aae3c572', 5)
-print '==================================================='
-print crackSHA1('0d8be45f65c033345972cb416161d59ef2d71451', 5)
-print '==================================================='
-print crackSHA1('6cd93a1728a02d69582e4882d0e61c5103dba107', 5)
-print '==================================================='
-print crackSHA1('7b34cb1928c13b29cdfc12f3bdfa932a0509c820', 5)
-print '==================================================='
+
 
 end = time.time()
 print 'attempt took %fmnts to complete ' % ((end - start)/60.0)

@@ -24,16 +24,19 @@ def get_table(num_chars, num_chains, chain_len, debug=False):
 	f = open(TAB_NAME, 'wt')
 	writer = csv.writer(f)
 
+	start_time = time.time()
 	for x in range(num_chains):
 		if x % 1000 == 0:
-			print 'have generated %i chains' % (x)
+			curr_time = time.time()
+			print 'have generated %i chains after %fmnts' % (x, (curr_time - start_time)/60)
 
 		rnd_string = ''.join(random.choice(string.lowercase) for i in range(num_chars))
 		(chain_head, chain_end) = chain.create_chain(rnd_string, chain_len, debug)
 
 		writer.writerow((chain_head,chain_end))
 
-	print 'finished generating table...'
+	end_time = time.time()
+	print 'finished generating table after %fmnts...' % ((end_time - start_time)/60)
 
 	return get_old_table()
 
@@ -74,7 +77,7 @@ def crackSHA1(hashval, num_chars, debug=False):
 	print 'The original value could not be recovered\n Try deleting your table and reruning'
 
 if __name__ == "__main__":
-	start = time.time()
+	start_time = time.time()
 	if len(sys.argv) == 3:
 		print 'Attempting to recover...'
 		print 'setting verbose mode off'
@@ -84,5 +87,5 @@ if __name__ == "__main__":
 		print 'setting verbose val %s' % (sys.argv[3])
 		crackSHA1(sys.argv[1], int(sys.argv[2]), bool(sys.argv[3]))
 
-	end = time.time()
-	print 'attack took %fmnts to complete ' % ((end - start)/60.0)
+	end_time = time.time()
+	print 'attack took %fmnts to complete ' % ((end_time - start_time)/60.0)
