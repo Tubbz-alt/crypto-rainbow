@@ -74,7 +74,6 @@ def crackSHA1(hashval, num_chars, debug=False):
 	print 'The original value could not be recovered\n Try deleting your table and reruning'
 
 if __name__ == "__main__":
-	start = time.time()
 	if len(sys.argv) == 3:
 		print 'Attempting to recover...'
 		print 'setting verbose mode off'
@@ -83,6 +82,3 @@ if __name__ == "__main__":
 		print 'Attempting to recover...'
 		print 'setting verbose val %s' % (sys.argv[3])
 		crackSHA1(sys.argv[1], int(sys.argv[2]), bool(sys.argv[3]))
-
-	end = time.time()
-	print 'attack took %fmnts to complete ' % ((end - start)/60.0)

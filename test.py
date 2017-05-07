@@ -68,6 +68,8 @@ print crackSHA1('0d8be45f65c033345972cb416161d59ef2d71451', 5)
 print '==================================================='
 print crackSHA1('6cd93a1728a02d69582e4882d0e61c5103dba107', 5)
 print '==================================================='
+print crackSHA1('7b34cb1928c13b29cdfc12f3bdfa932a0509c820', 5)
+print '==================================================='
 
 end = time.time()
 print 'attempt took %fmnts to complete ' % ((end - start)/60.0)
